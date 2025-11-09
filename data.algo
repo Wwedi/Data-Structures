@@ -1,0 +1,39 @@
+ALGORITHM SumDistinctElements
+
+DECLARE
+    set1 : ARRAY_OF INTEGER[4] = [4,5,2,7]
+    set2 : ARRAY_OF INTEGER[5] = [6,2,5,1,8]
+    sum, i, j : INTEGER
+    isDistinct: BOOLEAN
+
+BEGIN
+    sum := 0
+
+    // Check elements in set1
+    FOR i FROM 0 TO 3 DO
+        isDistinct := TRUE
+        FOR j FROM 0 TO 4 DO
+            IF set1[i] = set2[j] THEN
+                isDistinct := FALSE
+            END_IF
+        END_FOR
+        IF isDistinct THEN
+            sum := sum + set1[i]
+        END_IF
+    END_FOR
+
+    // Check elements in set2
+    FOR i FROM 0 TO 4 DO
+        isDistinct := TRUE
+        FOR j FROM 0 TO 3 DO
+            IF set2[i] = set1[j] THEN
+                isDistinct := FALSE
+            END_IF
+        END_FOR
+        IF isDistinct THEN
+            sum := sum + set2[i]
+        END_IF
+    END_FOR
+
+    WRITE("Sum of distinct elements: ", sum)
+END

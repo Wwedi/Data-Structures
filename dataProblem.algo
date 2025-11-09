@@ -1,0 +1,18 @@
+ALGORITHM DotProduct
+
+DECLARE
+    v1, v2 : ARRAY_OF REAL[3]
+    ps : REAL
+    i : INTEGER
+
+BEGIN
+    v1[0] := 4; v1[1] := 2; v1[2] :=1
+    v2[0] := 3; v2[1] := -1; v2[2] := 0
+    ps := 0
+
+    FOR i FROM 0 TO 2 DO
+        ps := ps + v1[i] * v2[i]
+    END_FOR
+
+    WRITE("Dot product = ", ps)
+END
